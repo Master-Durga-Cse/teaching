@@ -1,0 +1,42 @@
+package com.giet;
+
+public class NumberType {
+    public static int findType(int n) {
+        int sum = 0;
+                              
+        for (int i = 1; i <= n / 2; i++) {
+            if (n % i == 0) {
+                sum += i;
+            }
+        }
+
+        if (sum < n)
+            return 1;    // Deficient
+        else if (sum == n)
+            return 0;    // Perfect
+        else
+            return -1;   // Abundant
+    }
+}
+
+
+
+package com.giet;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+        int type = NumberType.findType(num);
+
+        if (type == 0)
+            System.out.println(num + " is a perfect number");
+        else if (type == 1)
+            System.out.println(num + " is a deficient number");
+        else
+            System.out.println(num + " is an abundant number");
+    }
+}
+
