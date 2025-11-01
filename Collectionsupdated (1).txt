@@ -1,0 +1,2292 @@
+Wrapper classes
+===============
+1.8 primitive datatypes has 8 classes that classes are wrapper classes.
+2.The purpose of wrapper classes is to convert primitive datatype into refernce or object type
+and refernce or object type converted into primitive datatype.
+
+
+
+		       Wrapper classes
+primitive              refernce/object
+ 
+1.byte==================>Byte
+2.short==================>Short
+3.int==================>Integer
+4.long==================>Long
+5.float==================>Float
+6.double==================>Double
+7.char==================>Character
+8.boolean==================>Boolean
+
+
+Boxing
+======
+The process of converting primitive datatype into refernce/object type.
+Boxing can be done by programmer explicitly.
+
+class Demo
+{
+	public static void main(String[] args)
+	{
+		int primitiveValue = 42;
+               Integer boxedValue = Integer.valueOf(primitiveValue); // Using valueOf() method
+		
+	}
+}
+
+		
+
+UnBoxing
+========
+The process of converting refernce/object type into primitive datatype.
+UnBoxing can be done by programmer explicitly.
+
+intValue()
+==========
+intValue() is used to convert Integer(object/refernce type) into  int (primitive) type.
+
+floatValue()
+==========
+floatValue() is used to convert Float(object/refernce type) into  float (primitive) type
+
+		Integer boxedValue = Integer.valueOf(42);
+		int primitiveValue = boxedValue.intValue(); // Using intValue() method
+
+
+
+
+		Integer a=new Integer(10);========>refernce/object type
+		int b=a.intValue();===============>primitive
+		System.out.println(b);
+
+		Float f1=new Float(1.2f);
+		float f2=f1.floatValue();
+		System.out.println(f2);
+
+AutoBoxing
+==========
+The process of converting primitive datatype into refernce/object type.
+AutoBoxing can be done by system implicitly.
+
+		int a=12;=======================>primitive
+		Integer b=a;===================>refernce/object type
+		System.out.println(b);
+
+		float a=1.3f;
+		Float b=a;
+		System.out.println(b);
+
+AutoUnBoxing
+============
+The process of converting refernce/object type into primitive datatype.
+AutoUnBoxing can be done by system implicitly.
+
+		Integer a=new Integer(12);==========>refernce/object type
+		int b=a;============================>primitive datattype
+		System.out.println(b);==============>12
+
+		Float f1=new Float(1.3f);
+		float f2=f1;
+		System.out.println(f2);======>1.3
+===============================================******=============================================================================================******==============================================
+collection Framework
+====================
+1.Difference b/w Arrays and collections
+2.Difference b/w collection and collections
+3.what is Collections and why?
+4.Hierarchy of Collection Framework.
+5.Difference b/w Collection and Map 
+6.List Interface and implemented classes
+7.Set Interface and implemented classes
+8.Queue Interface and implemented classes
+9.Deque Interface and implemented classes
+10.Map Interface and implemented classes
+11.Difference b/w ArrayList,LinkedList,Vector,Stack
+12.Difference b/w HashSet,LinkedHashSet,TreeSet
+13.Difference b/w HashMap,LinkedHashMap,TreeMap,HashTable,Properties
+14.Difference Failsafe and FailFast Collection
+15.Difference b/w HashMap and IdentityHashMap
+16.Difference b/w HashMap and WeakHashMap
+17.Difference b/w comparator and comparable
+18.Cursors
+19.Difference b/w Iterator,ListIterator and Enumaration
+
+------------------------------------------------------------------------------------------------
+
+Arrays
+=======
+1.Arrays size is fixed(automatically size cannot increase or decrease).
+2.Arrays stores Homegenous data(same data).
+3.In arrays there is no predefine methods for insert,delete,update,sort.
+4.Arrays stores both primitive type and object type.
+
+
+
+
+
+Collections
+============
+1.Collections size is growable in nature(automatically size can increase or decrease)
+2.Collections stores both homogenous and heterogenous.(same and different data)
+3.In collections there is  predefine methods for insert,delete,update,sort.
+4.Collections stores  object type.
+
+import java.util.*;
+class Demo
+{
+	public static void main(String[] args)
+	{
+        int[]  a={1,2,3,4};=========================================>primitive
+        System.out.println(Arrays.toString(a));===>[1, 2, 3, 4]
+        Integer[]  b={1,2,3,4};===================================>object type
+        System.out.println(Arrays.toString(b));===>[1, 2, 3, 4]
+	}
+}
+
+
+
+CollectionsFramework
+=====================
+1.Framework is a ready made software.
+2.Collection Framework is a collection of predefine interefaces,classes and methods.
+3.The purpose of CollectionsFramework is store group of Objects.
+3.We can perform any type of operations like sort,remove,insert,delete,update... because of predefine methods provided by framework.
+
+Difference between collection and collections.
+
+collection
+==========
+collection are interfaces
+The purpose of collection is to store group of objects.
+
+Ex
+--
+1.List
+2.Set
+3.Queue
+4.Deque
+
+Collections
+===========
+Collections are classes.
+The purpose of Collections is to provide predefine methods for(sorting,reversing,to find max num,
+to find min num,to find frequency of a num......)
+These classes are present in java.util package.
+
+Ex
+---
+ArrayList
+LinkedList
+Vector
+Stack
+HashSet
+LinkedHashSet
+TreeSet.........................
+
+
+Difference b/w collecton and Map
+================================
+collection
+-----------
+1.collection is a predefine interface
+2.collection contains classes(ArrayList,LinkedList,Vector,HashSet,LinkedHashSet....)
+3.classes in collection will store 1 dimensional data.
+4.classes in collection store the data in the form elements.
+5.classes in collection are index based.
+6.classes in collection allows duplicate values.
+7.we can access the data in collection classes based on index.
+
+Map
+---
+1.Map is a predefine interface
+2.Map contains classes(HashMap,LinkedHashMap,TreeMap......)
+3.classes in Map will store 2 dimensional data.
+4.classes in Map store the data in the key,value pairs.
+5.classes in Map are key based.
+6.classes in Map allows duplicate values and unique keys.
+7.we can access the data in Map classes based on keys.
+
+
+
+
+
+
+List
+=====
+1.List is a predefine interface.
+2.The purpose of List is to store multiple values with different datatype.
+3.The purpose of List is to store group of objects into a single entity.
+4.we cannot create object for List(because List is a interface).
+5.List allows duplicate values.
+6.List maintains insertion order.
+7.List allows multiple null values.
+
+
+List contains 4 implemented classes.They are
+1.ArraylList
+2.LinkedList
+3.Vector
+4.Stack
+
+RealTime Examples of List
+=========================
+1.If we want to store Student Names
+2.If we want to store Student fee.
+3.If we Want to store Student Branch Names.
+
+
+import java.util.*;
+class Demo
+{
+	public static void main(String[] args)
+	{
+		List l1=new ArrayList();
+		l1.add(2);
+		l1.add(4);
+		l1.add(1);
+		System.out.println(l1);============>[2,4,1]
+	}
+}
+
+import java.util.*;
+class Demo
+{
+	public static void main(String[] args)
+	{
+		List l1=new ArrayList();
+		l1.add(2);
+		l1.add(3.2);
+		l1.add("parithosh");
+		l1.add('c');
+		System.out.println(l1);====>[2, 3.2, parithosh, c]
+	}
+}
+
+	List l1=new ArrayList();
+	l1.add(2);
+        l1.add(1);
+        l1.add(2);
+        System.out.println(l1);===========>[2,1,2]
+
+	List l1=new ArrayList();
+        l1.add("hemanth");
+        l1.add("mohan");
+        l1.add("parithosh");
+        System.out.println(l1);======>[hemanth,mohan,parithosh]
+
+	List l1=new ArrayList();
+        l1.add("hemanth");
+        l1.add(null);
+        l1.add(null);
+        l1.add(null);
+        System.out.println(l1);=====>[hemanth,null,null,null]
+
+
+1.ArrayList
+===========
+1.ArrayList is a predefine class implemented from List interface.
+2.The purpose of ArrayList is store multiple values with differnt datatype.
+3.The purpose of ArrayList is store group of Objects.
+4.We can create object for ArrayList(it is class)
+5.ArrayList allows duplicate values.
+6.Arraylist allows multiple null values.
+7.ArrayList maintains insertion order.
+8.ArrayList internally follows Growbale nature datastructure.
+9.Bydefault initial capacity for ArrayList is 10.
+   newcapicity=oldcapicity*3  +1
+                           /2
+10.For data fetching or retrival ArrayList is recommend(because it will fetch the data based on index).
+11.ArrayList is not Synchronized.
+12.ArrayList is not thread safe.
+13.ArrayList is Collectionframework Collections(The Collections which are introduced 
+in 1.2 or above 1.2 version)
+
+
+import java.util.*;
+class Demo
+{
+	public static void main(String[] args)
+	{
+		ArrayList a1=new ArrayList();
+		a1.add(2);
+		a1.add("parithosh");
+		a1.add(true);
+		a1.add(2);
+		a1.add(null);
+		a1.add(null);
+		System.out.println(a1);=============>[2, parithosh, true, 2, null, null]
+		
+	}
+}
+
+Predefine methods in ArrayList
+===============================
+The methods which are already present in java software(jdk).These methods are developed by
+java developers.
+
+1.add()
+2.addAll()
+3.get()
+4.set()
+5.size()
+6.indexOf()
+7.lastIndexOf()
+8.subList()
+9.contains()
+10.sort()
+11.remove()
+12.reverse()
+13.max()
+14.min()
+15.frequency()
+16.clone()
+17.equals()
+18.asList()
+
+
+
+import java.util.*;
+class Demo
+{
+    public static void main(String[] args)
+    {
+        ArrayList a1=new ArrayList();
+        a1.add(2);
+        a1.add("venky");
+        a1.add('c');
+        System.out.println(a1);===========>[2,venky,c]
+    }
+}
+
+Generics
+========
+1.The purpose of Generics is to achive type safety(we can store only single type of Objects).
+2.By using Generics we need not do type casting explicitly.
+3.Generics can be applied by using diamond symbol <>.
+
+
+	ArrayList snames=new ArrayList();
+        snames.add("venky");
+        snames.add("parithosh");
+        snames.add("mohan");
+        System.out.println(snames);=====>[venky, parithosh, mohan]
+
+	ArrayList<String> snames=new ArrayList<String>();
+        snames.add("venky");
+        snames.add("parithosh");
+        snames.add("mohan");
+        System.out.println(snames);=====>[venky, parithosh, mohan]
+
+	ArrayList<String> snames=new ArrayList<String>();
+        snames.add("venky");
+        snames.add("parithosh");
+        snames.add("mohan");
+        snames.add(879034);
+        System.out.println(snames);============>error
+
+	ArrayList<Integer> sno=new ArrayList<Integer>();
+        sno.add(78990);
+        sno.add(78555);
+        sno.add("Hemanth");
+        System.out.println(sno);===============>error
+        
+
+	ArrayList a1=new ArrayList();
+        a1.add("venky");
+        a1.add("parithosh");
+        String name=(String)a1.get(1);
+        System.out.println(name);=============>parithosh
+
+	ArrayList<String> a1=new ArrayList<String>();
+        a1.add("venky");
+        a1.add("parithosh");
+        String name=a1.get(1);
+        System.out.println(name);====>parithosh
+
+
+1.add()
+=======
+add() is used to add all element.
+
+syntax
+------
+alvarname.add(element)
+
+		ArrayList a1=new ArrayList();
+		a1.add(2);
+		a1.add("parithosh");
+		System.out.println(a1);=========>[2,parithosh]
+
+2.addAll()
+===========
+addAll() is used to add multiple elements at a time.
+
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        al.add(3);
+        al.add(4);
+        al.add(2);
+        System.out.println(al);===>[3, 4, 2]
+        ArrayList<Integer> a2=new ArrayList<Integer>();
+       a2.addAll(al);
+       a2.add(7);
+       a2.add(9);
+       System.out.println(a2);========>[3, 4, 2, 7, 9]
+
+	import java.util.*;
+
+class Demo
+{
+    public static void main(String[] args)
+    {
+        String[] colors={"red","pink","black"};
+        System.out.println(Arrays.toString(colors));===>[red, pink, black]
+        List<String> l=new ArrayList<String>();
+        Collections.addAll(l,colors);
+        System.out.println(l);==========>[red, pink, black]
+        Collections.reverse(l);
+        System.out.println(l);=============>[black, pink, red]
+        Collections.sort(l);
+        System.out.println(l);==========>[black, pink, red]
+        
+
+    }
+}
+		
+
+3.get()
+=======
+get() is used to get element by passing index value.
+
+syntax
+-------
+datatype varname=alvarname.get(index)
+	ArrayList a1=new ArrayList();
+        a1.add(3);
+        a1.add(4);
+        int a= (int)a1.get(0);
+        System.out.println(a);=====>3
+
+4.set()
+=======
+set() is used to set/update the data by passing index and new value.
+
+syntax
+------
+alvaname.set(indexvalue,new element);
+ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        System.out.println(al);
+        al.set(0,"Maniratnam");
+        System.out.println(al);
+
+5.size()
+========
+size() is used to get total number of elements in ArrayList.
+
+datatype varname=alvn.size();
+        ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        System.out.println(al);
+       int s=al.size();
+       System.out.println(s);
+
+6.indexOf()
+===========
+indexOf() is used to get 1st occurance index of an ArrayList by passing element.
+
+datatype varname=alvn.indexOf(element);
+        ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        al.add("Rajkumar");
+        System.out.println(al);
+        int i=al.indexOf("Rajkumar");
+        System.out.println(i);
+
+7.lastIndexOf()
+==============
+lastIndexOf() is used to get last occurance index by passing element.
+
+syntax
+------
+datatype varname=alvname.lastIndexOf(element)
+ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        al.add("Rajkumar");
+        System.out.println(al);
+        int li=al.lastIndexOf("Rajkumar");
+        System.out.println(li);
+
+8.subList()
+===========
+subList() is used to get particular elements of an ArrayList by passing startindex and end index.
+
+
+syntax
+-------
+datatype  varname=alvname.subList(startindex,endindex);
+
+ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        al.add("Rajkumar");
+        System.out.println(al);
+         List res=al.subList(0,3);
+         System.out.println(res);=====>[Rajkumar,vvvinyak,rajamouli]
+        List res1=al.subList(0,7);
+         System.out.println(res1);====>IndexOutOfBoundsException
+
+9.contains()
+=============
+contains()  will returns true if element is present or will returns false if element not present.
+
+
+syntax
+------
+datatype varname=alvn.contains();
+        ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        al.add("Rajkumar");
+        System.out.println(al);
+        boolean res=al.contains("vvvinayak");
+        System.out.println(res);
+        boolean res1=al.contains("maniratnam");
+        System.out.println(res1);
+    
+
+sort()
+======
+sort() is used to sort the elements in ascending order.
+Note:reverseOrder() is used to sort the elements in descending order.
+
+syntax
+------
+Collections.sort(alvn)
+
+        ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        al.add("Rajkumar");
+        System.out.println(al);==>[Rajkumar, vvvinayak, rajamouli, Rajkumar]
+        Collections.sort(al);
+        System.out.println(al);==>[Rajkumar, Rajkumar, rajamouli, vvvinayak]
+
+	ArrayList<String> al=new ArrayList<String>();
+        al.add("Rajkumar");
+        al.add("vvvinayak");
+        al.add("rajamouli");
+        al.add("Rajkumar");
+        System.out.println(al);
+        Collections.sort(al);
+        System.out.println(al);
+        Collections.sort(al,Collections.reverseOrder());
+        System.out.println(al);
+
+
+11.remove()
+============
+remove() is used to remove element by passing index value.
+
+
+synatax
+-------
+alvn.remove(index);
+ArrayList<String> al=new ArrayList<String>();
+        al.add("mb");
+        al.add("pk");
+        al.add("ntr");
+        al.add("rc");
+        System.out.println(al);=====>[mb, pk, ntr, rc]
+        al.remove(2);
+        System.out.println(al);======>[mb, pk, rc]
+        
+
+12.reverse()
+===============
+reverse() is used to reverse the elements of an ArrayList.
+
+
+syntax
+------
+Collections.reverse(alvn)
+ArrayList<String> al=new ArrayList<String>();
+        al.add("mb");
+        al.add("pk");
+        al.add("ntr");
+        al.add("rc");
+        System.out.println(al);========>[mb, pk, ntr, rc]
+        Collections.reverse(al);
+        System.out.println(al);=======>[rc, ntr, pk, mb]
+
+
+13.max()
+========
+max() is used to get maximum element of an ArrayList.
+
+
+syntax
+------
+datatype varname=Collections.max(alvn);
+ArrayList<Integer> al=new ArrayList<Integer>();
+        al.add(56);
+        al.add(12);
+        al.add(3);
+        al.add(42);
+        System.out.println(al);===========>[56, 12, 3, 42]
+        int max=Collections.max(al);
+        System.out.println(max);==========>56
+
+14.min()
+========
+min() is used to get minimum element of an ArrayList.
+
+
+syntax
+------
+datatype varname=Collections.min(alvn);
+ArrayList<Integer> al=new ArrayList<Integer>();
+        al.add(56);
+        al.add(12);
+        al.add(3);
+        al.add(42);
+        System.out.println(al);===========>[56, 12, 3, 42]
+        int min=Collections.min(al);
+        System.out.println(min);==========>3
+
+15.frequency()
+===============
+frequency() is used to get count or number of occurnaces of an element.
+
+
+syntax
+------
+datatype varname=Collections.frequency(alvn,element);
+
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        al.add(56);
+        al.add(3);
+        al.add(12);
+        al.add(3);
+        al.add(42);
+        al.add(3);
+        al.add(3);
+        System.out.println(al);=============>[56, 3, 12, 3, 42, 3, 3]
+        int count=Collections.frequency(al,3);
+        System.out.println(count);==========>4
+        
+16.clone()
+==========
+clone() is used to copy one ArrayList elements into another ArrayList.
+
+
+syntax
+------
+    
+   ArrayList<Type> alvn=(ArrayList<Type>)alvn1.clone();    
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        al.add(56);
+        al.add(3);
+        al.add(12);
+        System.out.println(al);========>[56, 3, 12]
+        ArrayList<Integer> al2=(ArrayList<Integer>)al.clone();
+        System.out.println(al2);=======>[56, 3, 12]
+        
+
+Shallow copy
+=============
+In shallow copy if we done any modifications(insert,update,delete) modifications are
+not applied to the both arraylists (al1,al2)
+Shallow copy can be done clone()
+
+
+	ArrayList<String> al1=new ArrayList<String>();
+        al1.add("rohit");
+        al1.add("virat");
+        al1.add("gill");
+        System.out.println(al1);=========>[rohit, virat, gill]
+        ArrayList<String> al2=(ArrayList<String>)al1.clone();
+        System.out.println(al2);=========>[rohit, virat, gill]
+        al2.set(2,"venky");
+        System.out.println(al2);========>[rohit, virat, venky]
+        System.out.println(al1);=======>[rohit, virat, gill]
+        
+
+
+Deep copy
+========= 
+In Deep copy if we done any modifications(insert,update,delete) modifications are applied to the both arraylists.(al1,al2)
+Deep copy can be done(=) Assignment operator
+
+
+        ArrayList<String> al1=new ArrayList<String>();
+        al1.add("rohit");
+        al1.add("virat");
+        al1.add("gill");
+        System.out.println(al1);===========>[rohit, virat, gill]
+        ArrayList<String> al2=al1;
+        System.out.println(al2);===========>[rohit, virat, gill]
+        al2.set(2,"venky");
+        System.out.println(al2);===========>[rohit, virat, venky]
+        System.out.println(al1);===========>[rohit, virat, venky]
+
+
+clear()
+=======
+clear() is used to remove all the elements.
+
+
+alvan.clear()
+ArrayList<String> al1=new ArrayList<String>();
+        al1.add("rohit");
+        al1.add("virat");
+        al1.add("gill");
+        System.out.println(al1);=========>[rohit, virat, gill]
+        al1.clear();
+        System.out.println(al1);=========>[]
+
+isEmpty()
+=========
+isEmpty() is used to returns true if elements are not there and returns false if elements are there
+
+datype varname=alvname.isEmpty()
+
+        ArrayList<String> al1=new ArrayList<String>();
+       System.out.println(al1);===========>[]
+       boolean res=al1.isEmpty();
+       System.out.println(res);=========>true
+       al1.add("manju");
+       System.out.println(al1);=========>[manju]
+       boolean res1=al1.isEmpty();
+       System.out.println(res1);=======>false
+
+asList()
+========
+asList() is used to convert Arrays into List.
+
+
+List varname=Arrays.asList(avname);
+
+import java.util.*;
+
+class Demo
+{
+    public static void main(String[] args)
+    {
+        String[] colors={"red","pink","black"};
+        System.out.println(Arrays.toString(colors));===>[red, pink, black]
+        List l=Arrays.asList(colors);
+        System.out.println(l);===================>[red, pink, black]
+    }
+}
+
+Write a java program to convert List into Set
+
+import java.util.*;
+class Demo
+{
+
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList ();
+		l.add(5);
+		l.add(10);
+		l.add(15);
+		l.add(15);
+		System.out.println(l);======================>[5,10,15,15]
+		Set<Integer> s=new HashSet(l);
+		System.out.println(s);======================>[5,10,15]
+	
+	}
+}
+
+
+import java.util.*;
+class Emp
+{
+	int eno;
+	String ename;
+	Emp(int eno,String ename)
+	{
+		this.eno=eno;
+		this.ename=ename;
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Emp e1=new Emp(3,"venky");
+		Emp e2=new Emp(2,"parithosh");
+		Emp e3=new Emp(5,"Hemanth");
+		ArrayList<Emp> al=new ArrayList<Emp>();
+		al.add(e1);
+		al.add(e2);
+		al.add(e3);
+		System.out.println(al);====>[Emp@2f92e0f4, Emp@28a418fc, Emp@5305068a]
+		
+	}
+}
+
+
+import java.util.*;
+class Emp
+{
+	int eno;
+	String ename;
+	Emp(int eno,String ename)
+	{
+		this.eno=eno;
+		this.ename=ename;
+	}
+	public String toString()
+	{
+		return eno+" "+ename;
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Emp e1=new Emp(3,"venky");
+		Emp e2=new Emp(2,"parithosh");
+		Emp e3=new Emp(5,"Hemanth");
+		ArrayList<Emp> al=new ArrayList<Emp>();
+		al.add(e1);
+		al.add(e2);
+		al.add(e3);
+		System.out.println(al);================>[3 venky, 2 parithosh, 5 Hemanth]
+		
+	}
+}
+
+
+2.LinkedList
+=============
+1.LinkedList is a predefine class implemented from List interface.
+2.The purpose of LinkedList is store multiple values with differnt datatype.
+3.The purpose of LinkedList is store group of Objects.
+4.We can create object for LinkedList(it is class)
+5.LinkedList allows duplicate values.
+6.LinkedList allows multiple null values.
+7.LinkedList maintains insertion order.
+8.LinkedList internally follows doublelinkedlist datatstructure.
+9.Insertions and deletion LinkedList is recommend(because there is no shifting process)
+10.LinkedList is not Synchronized.
+12.LinkedList is not thread safe.
+13.LinkedList is Collectionframework Collections(The Collections which are introduced 
+in 1.2 or above 1.2 version)
+
+
+
+
+import java.util.*;
+class Demo
+{
+    public static void main(String[] args)
+    {
+        LinkedList ll=new LinkedList();
+        ll.add(1);
+        ll.add("venky");
+        ll.add('c');
+        ll.add(1.2);
+        System.out.println(ll);============>[1, venky, c, 1.2]
+        
+    }
+}
+
+	
+
+	LinkedList ll=new LinkedList();
+        ll.add(1);
+        ll.add("venky");
+        ll.add('c');
+        ll.add(1.2);
+        System.out.println(ll);=========>[1, venky, c, 1.2]
+        ll.add(1);
+        ll.add("venky");
+        System.out.println(ll);=======>[1, venky, c, 1.2, 1, venky]
+
+        LinkedList ll=new LinkedList();
+        ll.add(1);
+        ll.add("venky");
+        ll.add('c');
+        ll.add(1.2);
+        System.out.println(ll);====>[1, venky, c, 1.2]
+        ll.add(null);
+        ll.add(null);
+        System.out.println(ll);=====>[1, venky, c, 1.2, null, null]
+
+	import java.util.*;
+class Student
+{
+	int sno;
+	String sname;
+	Student(int sno,String sname)
+	{
+		this.sno=sno;
+		this.sname=sname;
+	}
+	public String toString()
+	{
+		return sno+" "+sname;
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Student s1=new Student(3,"venky");
+		Student s2=new Student(5,"Hemanth");
+		LinkedList<Student> ll=new LinkedList<Student>();
+		ll.add(s1);
+		ll.add(s2);
+		System.out.println(ll);=============>[3 venky, 5 Hemanth]
+
+	}
+}
+
+	ArrayList al=new ArrayList();
+        al.add(1);
+        al.add(2);
+        al.add(3);
+        al.add(4);
+        System.out.println(al);=====>[1, 2, 3, 4]
+        al.add(1,77);
+        System.out.println(al);======>[1, 77, 2, 3, 4]
+
+	LinkedList al=new LinkedList();
+        al.add(1);
+        al.add(2);
+        al.add(3);
+        al.add(4);
+        System.out.println(al);=====>[1, 2, 3, 4]
+        al.add(1,77);
+        System.out.println(al);======>[1, 77, 2, 3, 4]
+
+
+Vector
+======
+1.Vector is a predefine class implemented from List interface.
+2.The purpose of Vector is store multiple values with differnt datatype.
+3.The purpose of Vector is store group of Objects.
+4.We can create object for Vector(it is class)
+5.Vector allows duplicate values.
+6.Vector allows multiple null values.
+7.Vector maintains insertion order.
+8.Vector internally follows growable nature datastructure and initial capacity is 10.
+9.Vector is a synchronized.
+10.Vector is a thread safe.
+11.Vector is a legacy collections(The collections which are introduced in 1.0 or 1.1
+version)
+
+Stack
+======
+1.Stack is a predefine class implemented from List interface.
+2.The purpose of Stack is store multiple values with differnt datatype.
+3.The purpose of Stack is store group of Objects.
+4.We can create object for Stack(it is class)
+5.Stack allows duplicate values.
+6.Stack allows multiple null values.
+7.Stack maintains insertion order.
+8.Stack is sub class of Vector.
+9.Stack internally follows LIFO PRICIPLE(LAST IN FIRST OUT).
+10.Stack is a synchronized.
+11.Stack is a thread safe.
+12.Stack is a legacy collections(The collections which are introduced in 1.0 or 1.1
+version)
+
+
+push()
+======
+push() is used to add elements in Stack.
+
+peek()
+======
+peek() is used to get top element of Stack.
+
+pop()
+=====
+pop() is used to remove top element of Stack.
+
+import java.util.*;
+class Demo
+{
+    public static void main(String[] args)
+    {
+        Stack s1=new Stack();
+        s1.push("Anirudh");
+        s1.push("Manisharma");
+        s1.push("Dsp");
+        s1.push("yuvan");
+        System.out.println(s1);======>[Anirudh, Manisharma, Dsp, yuvan]
+        System.out.println(s1.peek());====>yuvan
+        s1.pop();
+        System.out.println(s1);=============>[Anirudh, Manisharma, Dsp]
+    }
+}
+
+Note:
+1.ArrayList=====>For fetching or retriving data(based on index value)
+2.LinkedList====>For insertion and deletion data(because there is no shifting process)
+3.Vector========(synchronized and thread safe)
+4.Stack=========(synchronized ,thread safe and LIFO PRINCIPLE)
+========================================================================
+1.Set
+=====
+1.Set is a predefine interface.
+2.The purpose of Set is to Store multiple values with different datatype.
+3.The purpose of Set is to store group of Objects.
+4.we cannot create object for Set(because Set is an interface).
+5.Set doesnot allow duplicates.
+6.Set allow only one null value.
+7.Set doesnot maintain insertion order.
+
+Set implemented classes.
+--------------------------
+1.HashSet
+2.LinkedHashSet
+3.TreeSet
+
+RealTime examples for Set
+===========================
+1.If we want to store student emailids
+2.If we want to store employee phone numbers
+3.If we want to store employee Aadharcard numbers
+
+import java.util.*;
+class Demo
+{
+    public static void main(String[] args)
+    {
+        Set s1=new HashSet();
+        s1.add(6);
+        s1.add("virat");
+        s1.add('c');
+        s1.add(1.2);
+        System.out.println(s1);===========>[1.2, virat, c, 6]
+    }
+}
+
+
+        Set s1=new HashSet();
+        s1.add(6);
+        s1.add("virat");
+        s1.add('c');
+        s1.add(1.2);
+        System.out.println(s1);======>[1.2, virat, c, 6]
+        s1.add("virat");
+        System.out.println(s1);=====>[1.2, virat, c, 6]
+	        Set s1=new HashSet();
+        s1.add(6);
+        s1.add("virat");
+        s1.add('c');
+        s1.add(1.2);
+        s1.add(null);
+        System.out.println(s1);========>[1.2, null, virat, c, 6]
+        s1.add(null);
+        System.out.println(s1);=======>[1.2, null, virat, c, 6]
+
+1.HashSet
+=========
+1.HashSet is a predefine class implemented from Set interface.
+2.The purpose of HashSet is to store multiple values with different datatype.
+3.The purpose of HashSet is to store group of Objects.
+4.we can create object for HashSet(because HashSet is a class).
+5.HashSet doesnot allow duplicate values.
+6.HashSet allows only 1 null value.
+7.HashSet doesnot maintain insertion order.
+8.HashSet internally follows HashTable datastructure.
+9.HashSet initaial capicity is 16.
+10.HashSet loadfactor is 0.75
+11.HashSet is not synchronized.
+12.HashSet is not thread safe.
+13.HashSet is a CollectionsFrameWork collections(was introduced in 1.2 or above
+1.2 version)
+
+
+
+import java.util.*;
+class Demo
+{
+    @SuppressWarnings("unchecked")
+    public static void main(String[] args)
+    {
+        HashSet hs=new HashSet();
+        hs.add(1);
+        hs.add("sachin");
+        hs.add('a');
+        System.out.println(hs);==============>[1, a, sachin]
+
+	hs.add(1);
+	hs.add(null);
+	System.out.println(hs);=============>[null, 1, a, sachin]
+
+	hs.add(null);
+	System.out.println(hs);============>[null, 1, a, sachin]
+
+
+
+    }
+}
+
+
+2.LinkedHashSet
+================
+1.LinkedHashSet is a predefine class implemented from Set interface.
+2.The purpose of LinkedHashSet is to store multiple values with different datatype.
+3.The purpose of LinkedHashSet is to store group of Objects.
+4.we can create object for LinkedHashSet(because LinkedHashSet is a class).
+5.LinkedHashSet doesnot allow duplicate values.
+6.LinkedHashSet allows only 1 null value.
+7.LinkedHashSet  maintains insertion order.
+8.LinkedHashSet internally follows HashTable and doublelinkedlist datastructure.
+9.LinkedHashSet initial capicity is 16.
+10.LinkedHashSet loadfactor is 0.75
+11.LinkedHashSet is not synchronized.
+12.LinkedHashSet is not thread safe.
+13.LinkedHashSet is a CollectionsFrameWork collections(was introduced in 1.2 or above
+1.2 version)
+
+
+import java.util.*;
+class Demo
+{
+    @SuppressWarnings("unchecked")
+    public static void main(String[] args)
+    {
+        LinkedHashSet hs=new LinkedHashSet();
+        hs.add(1);
+        hs.add("sachin");
+        hs.add('a');
+        System.out.println(hs);=========>[1,sachin,a]
+
+	hs.add(1);
+	hs.add(null);
+	System.out.println(hs);=========>[1,sachin,a,null]
+
+
+	hs.add(null);
+	System.out.println(hs);=========>[1,sachin,a,null]
+
+
+
+    }
+}
+
+3.TreeSet
+================
+1.TreeSet is a predefine class implemented from Set interface.
+2.The purpose of TreeSet is to store multiple values with same datatype.
+3.The purpose of TreeSet is to store group of Objects.
+4.we can create object for TreeSet(because TreeSet is a class).
+5.TreeSet doesnot allows duplicate values.
+6.TreeSet doesnot allow even one null value.
+7.TreeSet doesnot maintains insertion order.
+8.TreeSet internally follows BinaryTree datastructure.
+9.TreeSet sort the data in ascending order by default.
+10.TreeSet is not synchronized.
+11.TreeSet is not thread safe.
+12.TreeSet is a CollectionsFrameWork collections(was introduced in 1.2 or above
+1.2 version)
+
+
+import java.util.*;
+class Demo
+{
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(6);
+		ts.add(3);
+		ts.add(2);
+		System.out.println(ts);=======>[2,3,6]
+	}
+}
+
+import java.util.*;
+class Demo
+{
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(6);
+		ts.add(3);
+		ts.add(2);
+		ts.add("venky");
+		ts.add(1.5);
+		System.out.println(ts);========>ClassCastException
+	}
+}
+
+import java.util.*;
+class Demo
+{
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(6);
+		ts.add(3);
+		ts.add(2);
+		ts.add(6);
+		System.out.println(ts);=========>[2,3,6]
+		ts.add(null);
+		System.out.println(ts);==========>NullPointerException
+	}
+}
+
+1.HashSet==========>insertion order not maintained
+2.LinkedHashSet====>insertion order maintained
+3.TreeSet==========>sort the data bydefault ascending order.
+
+
+Queue
+=====
+1.Queue is a predefine intereface.
+2.The purpose of Queue is to store mutiple values with same datatype.
+3.The purpose of Queue is to store group of objects.
+4.we cannot create object for Queue(Queue is an interface).
+5.Queue allows duplicate values.
+6.Queue does not maintains insertion order.
+7.Queue does not allow null values(NullPointerException)
+8.Queue follows FIFO Principle(Fisrt In First Out).
+9.Queue insertion is done at tail or rear end and deletion is done at
+ head or front end.
+
+Deque
+=====
+1.Deque is a predefine intereface.
+2.The purpose of Deque is to store mutiple values with different datatype.
+3.The purpose of Deque is to store group of objects.
+4.we cannot create object for Deque(Deque is an interface).
+5.Deque allows duplicate values.
+6.Deque  maintains insertion order.
+7.Deque does not allow null values(NullPointerException)
+8.In Deque insertion is done at tail and head ends and deletion is done at
+ head and tail ends.
+
+
+
+
+
+Queue
+------
+1.PriorityQueue
+
+Deque
+-----
+1.ArrayDeque
+
+RealTime Example for Queue
+---------------------------
+If we want to sms to multiple phonenumbers(basesd on priority sms will be send)
+
+1.PriorityQueue
+===============
+1.PriorityQueue is  a predefine class and implemeted from Queue interface
+2.The purpose of PriorityQueue is to store multiple values with same datatype.(ClassCastException)
+3.The purpose of PriorityQueue is to store group of Objects.
+4.We can create object for PriorityQueue(because it is a class)
+5.PriorityQueue allows duplicate values.
+6.PriorityQueue does not maintains insertion order.
+7.PriorityQueue does not allow null values(NullPointerException)
+8.PriorityQueue follows FIFO Principle(Fisrt In First Out).
+9.In PriorityQueue insertion is done at tail or rear end and deletion is done at
+ head or front end.
+
+offer() is used to insert the data in tail end.
+peek() is used to get the head data.
+poll() is used to remove the head data.
+
+
+
+
+import java.util.*;
+class Demo
+{
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		PriorityQueue p1=new PriorityQueue();
+		p1.offer(3);
+		p1.offer(4);
+		p1.offer(2);
+		System.out.println(p1);=====>[2,4,3]
+		p1.offer("bhavadeesh");
+		System.out.println(p1);====>ClassCastException
+	}
+}
+
+		PriorityQueue p1=new PriorityQueue();
+		p1.offer(3);
+		p1.offer(4);
+		p1.offer(2);
+		System.out.println(p1);===========>[2, 4, 3]
+		p1.offer(2);
+		System.out.println(p1);==========>[2,2, 4, 3]
+
+PriorityQueue p1=new PriorityQueue();
+		p1.offer(3);
+		p1.offer(4);
+		p1.offer(2);
+		System.out.println(p1);=====>[2, 4,3]
+		p1.offer(2);
+		System.out.println(p1);======>[2, 2, 3, 4]
+		p1.offer(null);
+		System.out.println(p1);=====>.NullPointerException
+
+
+PriorityQueue p1=new PriorityQueue();
+		p1.offer(3);
+		p1.offer(4);
+		p1.offer(2);
+		p1.offer(7);
+		System.out.println(p1);=================>[4,2,7,3]
+		System.out.println(p1.peek());==========>4
+		p1.poll();
+		System.out.println(p1);================>[3,7,2]
+
+
+
+
+2.ArrayDeque
+===============
+1.ArrayDeque is  a predefine class and implemeted from Deque interface
+2.The purpose of ArrayDeque is to store multiple values with different datatype.
+3.The purpose of ArrayDeque is to store group of Objects.
+4.We can create object for ArrayDeque(because it is a class)
+4.ArrayDeque allows duplicate values.
+5.ArrayDeque  maintains insertion order.
+6.ArrayDeque does not allow null values(NullPointerException)
+7.In ArrayDeque insertion is done at head or tail ends and deletion can be done
+at head or tail ends.
+	
+
+		ArrayDeque a1=new ArrayDeque();
+		a1.add(5);
+		a1.add(2);
+		a1.add(1);
+		System.out.println(a1);========>[5,2,1]
+		a1.add("virat");
+		a1.add(2.2);
+		System.out.println(a1);==========>[5, 2, 1, virat, 2.2]
+
+
+
+		ArrayDeque a1=new ArrayDeque();
+		a1.add(5);
+		a1.add(2);
+		a1.add(1);
+		System.out.println(a1);===>[5, 2, 1]
+		a1.add(6);
+		a1.add(7);
+		System.out.println(a1);====>[5, 2, 1, 6, 7]
+
+		ArrayDeque a1=new ArrayDeque();
+		a1.add(5);
+		a1.add(2);
+		a1.add(1);
+		System.out.println(a1);========>[5, 2, 1]
+		a1.add(2);
+		a1.add(2);
+		System.out.println(a1);=======>[5, 2, 1,2,2]
+		a1.add(null);
+		System.out.println(a1);=======>NullPointerException
+
+		ArrayDeque a1=new ArrayDeque();
+			a1.add(3);
+			a1.add(4);
+			System.out.println(a1);=====>[3,4]
+			a1.addLast(7);
+			System.out.println(a1);======>[3,4,7]
+			a1.addFirst(5);
+			System.out.println(a1);======>[5,3,4,7]
+		
+Map
+===
+1.Map is a predefine interface.
+2.The purpose of Map is store data in the form of key,value pair.
+3.We cannot create object for Map(because Map is interface)
+4.Map allows duplicate values and keys must be unique(not duplicated).
+5.Map doesnot maintain insertion order.
+6.Map allows multiple null values and one null key.
+
+
+
+Map implemented classes
+========================
+1.HashMap
+2.LinkedHashMap
+3.TreeMap
+4.HashTable
+
+RealTime Examples for Map
+==========================
+1.If we want to store studentrollno,studentname
+2.1.If we want to store employeemail,employeename
+
+
+1.HashMap
+=========
+1.HashMap is a predefine class implemented from Map interface.
+2.The purpose of HashMap is to store data in the form key,value pair.
+3.Technically key,value pair is entry.
+4.we can create object for HashMap(because HashMap is a class).
+5.HashMap allows duplicates values and keys must unique(not duplicate)
+6.HashMap allows multiple null values and 1 null key.
+7.HashMap doesnot maintain insertion order.
+8.HashMap internally follows HashTable datastructure.
+9.HashMap initaial capacity is 16.
+10.HashMap loadfactor is 0.75
+11.HashMap is not synchronized.
+12.HashMap is not thread safe.
+13.HashMap is a CollectionsFrameWork collections(was introduced in 1.2 or above
+1.2 version)
+
+
+2.LinkedHashMap
+================
+1.LinkedHashMap is a predefine class implemented from Map interface.
+2.The purpose of LinkedHashMap is to store data in the form key,value pair
+3.Technically key,value pair is entry.
+4.we can create object for LinkedHashMap(because LinkedHashMap is a class).
+5.LinkedHashMap allows duplicate values and keys must be unique(not duplicate)
+6.LinkedHashMap allows multiple  null values and 1 null key.
+7.LinkedHashMap  maintains insertion order.
+8.LinkedHashMap internally follows HashTable and doublelinkedlist datastructure.
+9.LinkedHashMap initial capicity is 16.
+10.LinkedHashMap loadfactor is 0.75
+11.LinkedHashMap is not synchronized.
+12.LinkedHashMap is not thread safe.
+13.LinkedHashMap is a CollectionsFrameWork collections(was introduced in 1.2 or above
+1.2 version)
+
+
+
+3.TreeMap
+==========
+1.TreeMap is a predefine class implemented from Map interface.
+2.The purpose of TreeMap is to store data in the form key,value pair.
+3.Technically key,value pair is entry.
+4.we can create object for TreeMap(because TreeMap is a class).
+5.TreeMap allows duplicate values and keys must be unique(not duplicate)
+6.TreeMap allows mutiple null values and does not allow even 1 null value
+7.TreeMap doesnot maintains insertion order.
+8.TreeMap internally follows BinaryTree datastructure.
+9.TreeMap sort the data in ascending order by default.
+10.TreeMap is not synchronized.
+11.TreeMap is not thread safe.
+12.TreeMap is a CollectionsFrameWork collections(was introduced in 1.2 or above
+1.2 version)
+
+
+4.HashTable
+==========
+1.HashTable is a predefine class implemented from Map interface.
+2.The purpose of HashTable is to store data in the form key,value pair.
+3.Technically key,value pair is entry.
+4.we can create object for HashTable(because HashTable is a class).
+5.HashTable allows duplicate values and keys must be unique(not duplicate)
+6.HashTable does not allow even 1 null value and 1 null key.
+7.HashTable doesnot maintains insertion order.
+8.HashTable is synchronized.
+9.HashTable is thread safe.
+10.HashTable is a legacy collections(was introduced in 1.0 or 1.1 version)
+
+
+Note:
+1.HahMap===========>No insertion order maintains and not synchronized.
+2.LinkedHashMap====>Insertion order maintains and not synchronized.
+3.TreeMap==========>Sort the data in ascending order bydefault and not synchronized.
+4.HashTable========>No insertion order maintains synchronized. 
+
+
+Properties
+==========
+1.Properties is a predefined class available in java.util package
+2.Properties is sub class of HashTable.
+3.Properties class is used to avoid hardcoding in the project.
+4.Hardcoding means fixing values in the program.
+5.Properties file contains data in key,value pair
+
+Ex
+==
+uname=bhavadeesh
+password=Bhavi123
+
+properties file extension (.properties)
+
+Note:
+If java application wants to communicate with database,then we need to use database 
+credentials(username,password) in java program.
+
+If we hardcode database credentials in java program then project maintenance will
+become difficult why because in future if database credentials may modified then we need  to modify our java program also.
+
+Then in java program is modified then we need to recompile and reexecute our java 
+program
+
+To overcame above problems we should not do hardcoding.
+
+db.properties
+--------------
+case-1
+-------
+Username="Bhavadeesh"
+Password="Bhavi123"
+
+case-2
+-------
+Username="Bhavadeesh"
+Password="virat123"
+
+
+Demo.java
+----------
+
+import java.io.*;
+import java.util.*;
+class Demo
+{
+	public static void main(String[] args)
+	{
+		try
+		{
+			FileInputStream fis=new FileInputStream("db.properties");
+			Properties p=new Properties();
+			p.load(fis);
+			String un=p.getProperty("Username");
+			String pw=p.getProperty("Password");
+			System.out.println(un);
+			System.out.println(pw);
+	
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+}
+
+output
+======
+javac Demo.java
+
+java Demo
+"Bhavadeesh"
+"Bhavi123"
+
+java Demo
+"Bhavadeesh"
+"virat123"
+
+
+
+
+import java.util.*;
+class Demo
+{
+	public static void main(String[] args)
+	{
+		HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);===>{10=parithosh, 11=Hemanth, 12=venky}
+	
+	}
+}
+
+		HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);
+		hm.put(15,"venky");
+System.out.println(hm);===>{10=parithosh, 11=Hemanth, 12=venky, 15=venky}
+
+HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);===>{10=parithosh, 11=Hemanth, 12=venky}
+		hm.put(12,"Idli");
+		System.out.println(hm);==>{10=parithosh, 11=Hemanth, 12=Idli}
+
+HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);
+		hm.put(13,null);
+		hm.put(17,null);
+		System.out.println(hm);
+		hm.put(null,"Ajay");
+		System.out.println(hm);
+		hm.put(null,"Swapna");
+		System.out.println(hm);
+
+{10=parithosh, 11=Hemanth, 12=venky}
+{17=null, 10=parithosh, 11=Hemanth, 12=venky, 13=null}
+{null=Ajay, 17=null, 10=parithosh, 11=Hemanth, 12=venky, 13=null}
+{null=Swapna, 17=null, 10=parithosh, 11=Hemanth, 12=venky, 13=null}
+
+
+Predefine methods in Map
+=========================
+1.put()
+=======
+put() is used to insert entries(key,value)pairs.
+
+2.size()
+=========
+size() is used to get total number of entries(key,value)pairs
+
+syntax
+------
+datatype varname=hmvn.size()
+HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);========>{12=venky,10=parithosh,11=Hemanth}
+		int l=hm.size();
+		System.out.println(l);=======>3	
+
+3.get()
+=======
+get() is used to get value by passing key.
+
+syntax
+------
+datatype varname=hmvn.get(key)
+
+4.containsKey()
+===============
+containsKey() returns true if key is present and returns false when key is not present.
+
+syntax
+------
+datatype varname=hmvn.containsKey(key)
+
+5.containsValue()
+===============
+containsValue() returns true if value is present and returns false when value is not present.
+
+syntax
+------
+datatype varname=hmvn.containsValue(value)
+
+
+		HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);======>{12=Venky,10=parithosh,11=Hemanth}
+		int l=hm.size();
+		System.out.println(l);=============================>3
+		String s=hm.get(12);
+		System.out.println(s);===========================>Venky
+		boolean res=hm.containsKey(11);
+		System.out.println(res);==========================>true
+		boolean res1=hm.containsKey(1);
+		System.out.println(res1);=========================>false
+		boolean res3=hm.containsValue("Hemanth");
+		System.out.println(res3);=========================>true
+		boolean res4=hm.containsValue("Mahesh");
+		System.out.println(res4);========================>false
+
+6.keySet()
+===========
+keySet() is used to get all the keys from the HashMap.
+
+syntax
+-------
+Datatype varname=hmvn.keySet()
+
+7.values()
+==========
+values() is used to get all values from the HashMap.
+
+syntax
+------
+Datatype varname=hmvn.values();
+
+8.entrySet()
+==========
+entrySet() is used to get all entries(key,value)pairs from the HashMap.
+
+syntax
+------
+Datatype varname=hmvn.entrySet();
+
+9.clear()
+=========
+clear() is used to remove all the entries from the HashMap
+
+syntax
+------
+hmvn.clear()
+
+
+		HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);==============>{10=parithosh, 11=Hemanth, 12=venky}
+		Set<Integer> keys=hm.keySet();
+		System.out.println(keys);============>[10, 11, 12]
+		Collection<String> val=hm.values();
+		System.out.println(val);=============>[parithosh, Hemanth, venky]
+				 Set<Map.Entry<Integer,String>> kv=hm.entrySet();
+		System.out.println(kv);==>{10=parithosh, 11=Hemanth, 12=venky}
+
+HashMap<Integer,String> hm=new HashMap<>();
+		hm.put(12,"venky");
+		hm.put(11,"Hemanth");
+		hm.put(10,"parithosh");
+		System.out.println(hm);==========>{10=parithosh, 11=Hemanth, 12=venky}
+		boolean res1=hm.isEmpty();
+		System.out.println(res1);====>false
+
+		hm.clear();
+		System.out.println(hm);=======>{}
+		boolean res=hm.isEmpty();
+		System.out.println(res);======>true
+
+FailFirst/ Nonconcurrentcollections
+====================================
+The collections which will gives ConcurrentModificationException when we modifies the
+data during traversing.
+
+Examples
+---------
+ArrayList,LinkedList,Vector,HashSet,LinkedHashSet.......
+
+FailSafe/ Concurrentcollections
+============================
+The collections which will not gives ConcurrentModificationException when we modifies the data during traversing
+
+Examples
+--------
+CopyOnWriteArrayList,ConcurrentHashSet
+
+
+		ArrayList<Integer> al=new ArrayList<>();
+		al.add(1);
+		al.add(2);
+		al.add(3);
+		al.add(4);
+		System.out.println(al);
+		for(int rs:al)
+		{
+			if(rs==1)
+			{
+				al.add(5678);====>ConcurrentModificationException
+			}
+			
+		}
+		System.out.println(al);
+
+	import java.util.concurrent.*;
+class Demo
+{
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		CopyOnWriteArrayList<Integer> al=new   CopyOnWriteArrayList<>();
+		al.add(1);
+		al.add(2);
+		al.add(3);
+		al.add(4);
+		System.out.println(al);====>[1, 2, 3, 4]
+		for(int rs:al)
+		{
+			if(rs==1)
+			{
+				al.add(5678);
+			}
+			
+		}
+		System.out.println(al);=====>[1, 2, 3, 4, 5678]
+	}
+}
+
+
+Differnce between HashMap and IdentityHashMap
+HashMap does not duplicate keys
+IdentityHashMap allow duplicate keys
+
+HashMap<String,Integer> hm=new HashMap<>();
+		hm.put("venky",100);
+		hm.put("ajay",200);
+		hm.put("parithosh",300);
+		System.out.println(hm);
+		hm.put(new String("ajay"),600);
+		System.out.println(hm);
+		System.out.println("hm size"+hm.size());
+
+		System.out.println("====================================");
+		IdentityHashMap<String,Integer> ihm=new IdentityHashMap<>();
+		ihm.put("venky",100);
+		ihm.put("ajay",200);
+		ihm.put("parithosh",300);
+		System.out.println(ihm);
+		ihm.put(new String("ajay"),600);
+		System.out.println(ihm);
+		System.out.println("ihm size="+ihm.size());
+
+
+		output
+               ========
+		{parithosh=300, venky=100, ajay=200}
+		{parithosh=300, venky=100, ajay=600}
+		hm size3
+		====================================
+		{venky=100, ajay=200, parithosh=300}
+		{venky=100, ajay=600, ajay=200, parithosh=300}
+		ihm size=4
+
+Difference b/w HashMap and WeakHashMap
+
+HashMap
+========
+HashMap has strong refernce that means HashMap is not eleigible for garbage collection.
+
+WeakHashMap
+==========
+WeakHashMap has weak refernce that means WeakHashMap is eligible for garbage
+collection.
+
+Note:Garbage collection will dominate the WeakHashMap but not able to dominate
+     HashMap
+
+WeakHashMap<String,Integer> hm=new WeakHashMap<>();
+		hm.put("venky",100);
+		hm.put("ajay",200);
+		hm.put("parithosh",300);
+		System.out.println(hm);========>{parithosh=
+
+
+cursors
+========
+1.cursors are used to iterate one by one object of a collections.
+2.Cursors are divided into 3 types.They are
+ 1.Enumeration
+ 2.Iterator
+ 3.ListIterator
+
+1.Enumeration
+=============
+1.Enumeration is used to iterate one by one object of a collections.
+2.Enumeration is applied to the only on legacy collections(Vector,Stack....)
+2.Enumeration is used to read the data.
+
+
+Methods in Enumeration
+-----------------------
+1.public boolean hasMoreElements()
+2.public object NextElement()
+
+
+Vector v=new Vector();
+		v.add(3);
+		v.add(4);
+		v.add(1);
+		System.out.println(v);==========>[3, 4, 1]
+		Enumeration e=v.elements();
+		while(e.hasMoreElements())
+		{
+		     Integer i1=(Integer) e.nextElement();
+		}
+		System.out.println(v);===========>[3, 4, 1]
+
+
+2.Iterator
+==========
+1.Iterator is used to iterate one by one object of a Collections.
+2.Iterator is applied on any collections.(Iterator is a universal cursor)
+3.Iterator is used to read and remove the data.
+
+Methods in Iterator
+===================
+1.public boolean hasNext()
+2.public object next()
+3.public void remove()
+
+ArrayList al=new ArrayList();
+		al.add(1);
+		al.add(2);
+		al.add(3);
+		al.add(4);
+		al.add(5);
+		System.out.println(al);==========>[1,2,3,4,5]
+		Iterator i=al.iterator();
+		while(i.hasNext())
+		{
+			Integer i1=(Integer)i.next();
+			if(i1%2==0)
+			{
+				System.out.println(i1);=====>[2,4]
+			}
+			else
+			{
+				i.remove();========>1,3,5 removed
+			}
+			
+		}
+		System.out.println(al);=========>[2,4]
+
+
+3.ListIterator
+==============
+1.ListIterator is used to iterate one by one object of a Collections in both directions either forward or backward.(ListIterator is a bidirectional cursor)
+2.ListIterator is applied on any Listcollections.
+3.ListIterator is used to read,remove,add and set the data.
+4.ListIterator 
+
+Methods in ListIterator
+=======================
+1.public boolean hasNext()
+2.public object next()============================>Forward
+3.public void nextIndex()
+
+1.public boolean hasPrevious()
+2.public object next()============================>Backward
+3.public void previousIndex()
+
+1.public void remove()
+2.public void add()
+3.public void set()
+
+import java.util.*;
+class Demo
+{
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		ArrayList al=new ArrayList();
+		al.add("Balakrishna");
+		al.add("venky");
+		al.add("nag");
+		al.add("chiru");
+		System.out.println(al);
+		ListIterator li=al.listIterator();
+		while(li.hasNext())
+		{
+			String s=(String)li.next();
+			if(s.equals("venky"))
+			{
+				li.remove();
+			}
+			else if(s.equals("nag"))
+			{
+				li.add("chaitu");
+			}
+			else if(s.equals("chiru"))
+			{
+				li.set("charan");
+			}
+
+		}
+		System.out.println(al);
+	}
+}
+
+output
+------
+[Balakrishna, venky, nag, chiru]
+[Balakrishna, nag, chaitu, charan]
+
+
+
+comparable
+===========
+1.comparable is a predefine interface is present in java.lang package.
+2.comparable contains public int compareTo(Object o)
+3.The purpose of comparable is to sort the predefine class(Wrapper,String classes)
+  and userdefine classes(Student,Employee,Bank....)
+4.In comparable interface we have write sorting logic and business logic in same class.
+
+
+comparator
+==========
+1.comparator is a predefine interface is present in java.util package.
+2.comparator contains public int compare(Object o1,Object o2)
+3.The purpose of comparator is to sort the userdefine classes(Student,Employee)
+4.In comparator interface we can sorting logic in our own class(Enocom,Enamecom) and business logic
+  in another classes(Student,Emp).
+
+Note:if we modify sorting logic in comparable it is effected to business logic class
+     (Student,Emp)
+     If we modify sorting logic in comparator it is not effected to business logic
+     class(Student,Emp)
+
+
+if current object > specified object =====>positive 1===>right side
+if current object < specified object =====>negative -1===>left side
+if current object == specified object=====>zero      0===>remains constant
+
+import java.util.*;
+class Student implements Comparable<Student>
+{
+	int sno;
+	String sname;
+	Student(int sno,String sname)
+	{
+		this.sno=sno;
+		this.sname=sname;
+	}
+	public int compareTo(Student s)
+	{
+		if(sno>s.sno)
+		{
+			return 1;
+		}
+		else if(sno<s.sno)
+		{
+			return -1;
+		}
+		else
+		{
+			return 0;
+		}
+		
+	}
+	
+	public String toString()
+	{
+		return sno+" "+sname;
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Student s1=new Student(12,"parithosh");
+		Student s2=new Student(2,"venky");
+		Student s3=new Student(32,"Manju");
+		ArrayList<Student> al=new ArrayList<>();
+		al.add(s1);
+		al.add(s2);
+		al.add(s3);
+		Collections.sort(al);
+		for(Student res:al)
+		{
+			System.out.println(res);
+		}
+		
+	}
+}
+
+
+
+2 venky
+12 parithosh
+32 Manju
+
+
+import java.util.*;
+class Student implements Comparable<Student>
+{
+	int sno;
+	String sname;
+	Student(int sno,String sname)
+	{
+		this.sno=sno;
+		this.sname=sname;
+	}
+	public int compareTo(Student s)
+	{
+		return this.sno-s.sno;		
+	}
+	
+	public String toString()
+	{
+		return sno+" "+sname;
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Student s1=new Student(121,"parithosh");
+		Student s2=new Student(25,"venky");
+		Student s3=new Student(32,"Manju");
+		ArrayList<Student> al=new ArrayList<>();
+		al.add(s1);
+		al.add(s2);
+		al.add(s3);
+		Collections.sort(al);
+		for(Student res:al)
+		{
+			System.out.println(res);
+		}
+		
+	}
+}
+
+
+25 venky
+32 Manju
+121 parithosh
+
+import java.util.*;
+class Student implements Comparable<Student>
+{
+	int sno;
+	String sname;
+	Student(int sno,String sname)
+	{
+		this.sno=sno;
+		this.sname=sname;
+	}
+	public int compareTo(Student s)
+	{
+		return this.sname.compareTo(s.sname);	
+	}
+	
+	public String toString()
+	{
+		return sno+" "+sname;
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Student s1=new Student(121,"parithosh");
+		Student s2=new Student(25,"venky");
+		Student s3=new Student(32,"Manju");
+		ArrayList<Student> al=new ArrayList<>();
+		al.add(s1);
+		al.add(s2);
+		al.add(s3);
+		Collections.sort(al);
+		for(Student res:al)
+		{
+			System.out.println(res);
+		}
+		
+	}
+}
+
+32 Manju
+121 parithosh
+25 venky
+
+
+import java.util.*;
+class Emp 
+{
+	int eno;
+	String ename;
+	Emp(int eno,String ename)
+	{
+		this.eno=eno;
+		this.ename=ename;
+	}
+	public String toString()
+	{
+		return eno+" "+ename;
+	}
+	
+}
+class Enocomp implements Comparator<Emp>
+{
+    public int compare(Emp e1,Emp e2)
+   {
+	if(e1.eno>e2.eno)
+	{
+		return 1;
+	}
+	else if(e1.eno<e2.eno)
+	{
+		return -1;
+	}
+	else
+	{
+		return 0;
+	}
+   }
+}
+class Enamecom implements Comparator<Emp>
+{
+	public int compare(Emp e1,Emp e2)
+	{
+		return e1.ename.compareTo(e2.ename);
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		Emp e1=new Emp(65,"bhavi");
+		Emp e2=new Emp(45,"hari");
+		Emp e3=new Emp(75,"ravi");
+		ArrayList<Emp> al=new ArrayList<>();
+		al.add(e1);
+		al.add(e2);
+		al.add(e3);
+		Collections.sort(al,new Enamecom());
+		for(Emp res:al)
+		{
+			System.out.println(res);
+		}
+
+
+		
+	}
+}
+65 bhavi
+45 hari
+75 ravi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+        
+
+       
+        
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
